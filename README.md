@@ -1,6 +1,6 @@
-# Blue Kohana Module
+# Media Kohana Module.
 
-Media is a simple media/assets module for Kohana.
+This a simple media/assets module for Kohana.
 
 For documentation see the guide/ subfolder or use Kohana's [Userguide](https://github.com/kohana/userguide) module.
 
