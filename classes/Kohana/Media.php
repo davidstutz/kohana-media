@@ -3,10 +3,9 @@
 /**
  * Media helper.
  *
- * @package     Media
- * @author      David Stutz
- * @copyright   (c) 2013 David Stutz
- * @license     http://opensource.org/licenses/bsd-3-clause
+ * @package		Media
+ * @author		David Stutz
+ * @copyright	(c) 2013 David Stutz
  */
 class Kohana_Media {
     

@@ -1,2 +1,1 @@
 ## [Media](index)
- - [Usage](usage)
