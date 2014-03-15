@@ -1,11 +1,12 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 /**
- * Media helper.
- *
- * @package   Media
- * @author    David Stutz
- * @copyright (c) 2013 David Stutz
+ * Javascript helper.
+ * 
+ * @package     Media
+ * @author      David Stutz
+ * @copyright   (c) 2013-2014 David Stutz
+ * @license     http://opensource.org/licenses/bsd-3-clause
  */
 class Kohana_Media_JS {
 
@@ -22,7 +23,7 @@ class Kohana_Media_JS {
      * @return  object  instance
      */
     public function add($mixed, $dependencies = array()) {
-        $path = DOCROOT . 'media' . Media::DS . 'js' . Media::DS;
+        $path = Kohana::$config->load('media.js');
         
         if (is_array($mixed)) {
             foreach ($mixed as $file => $array) {
@@ -33,7 +34,7 @@ class Kohana_Media_JS {
                     }
                 }
                 else {
-                    $this->_files[$path . Media::DS . $array] = array();
+                    $this->_files[$path . DIRECTORY_SEPARATOR . $array] = array();
                 }
             }
         }
@@ -82,7 +83,7 @@ class Kohana_Media_JS {
      */
     public function render() {
         $filename = sha1(serialize($this->_files)) . '.js';
-        $filepath = Kohana::$cache_dir . Media::DS . $filename;
+        $filepath = Kohana::$cache_dir . DIRECTORY_SEPARATOR . $filename;
 
         if (file_exists($filepath)) {
             $mtime = filemtime($filepath);

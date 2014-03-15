@@ -4307,7 +4307,7 @@ class CssAtMediaStartToken extends aCssAtBlockStartToken
  * {@link aCssParserPlugin Parser plugin} for parsing @media at-rule block.
  * 
  * Found @media at-rule blocks will add a {@link CssAtMediaStartToken} and {@link CssAtMediaEndToken} to the parser. 
- * This plugin will also set the the current media types using {@link CssParser::setMediaTypes()} and
+ * This plugin will also set the current media types using {@link CssParser::setMediaTypes()} and
  * {@link CssParser::unsetMediaTypes()}.
  *
  * @package		CssMin/Parser/Plugins

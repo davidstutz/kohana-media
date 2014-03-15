@@ -1,4 +1,4 @@
-# Media Kohana Module.
+# Media Kohana Module
 
 This a simple media/assets module for Kohana.
 
@@ -6,12 +6,12 @@ Documentation can also be found in the guide/ subfolder or using Kohana's [Userg
 
 ## Usage
 
-**Note:** Currently the plugin expects the CSS and JS files to be found at the following paths:
+The configuration file allows to adjust the paths to the CSS and Javascript files. By default, the following paths are used:
 
-    $path = DOCROOT . 'media' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR // CSS
-    $path = DOCROOT . 'media' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR // JS
-
-These paths are hardcoded. I consider adding a configuration options for setting the paths.
+    return array(
+        'css' => DOCROOT . 'media' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR,
+        'js' => DOCROOT . 'media' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR,
+    );
 
 Used media - both CSS and JS - is managed by the current Media instance:
 

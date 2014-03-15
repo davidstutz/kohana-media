@@ -2,14 +2,13 @@
 
 /**
  * Media helper.
- *
- * @package		Media
- * @author		David Stutz
- * @copyright	(c) 2013 David Stutz
+ * 
+ * @package     Media
+ * @author      David Stutz
+ * @copyright   (c) 2013-2014 David Stutz
+ * @license     http://opensource.org/licenses/bsd-3-clause
  */
 class Kohana_Media {
-    
-    const DS = DIRECTORY_SEPARATOR;
 
     /**
      * @var	object	instance

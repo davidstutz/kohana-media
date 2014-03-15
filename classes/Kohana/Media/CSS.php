@@ -1,11 +1,12 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 /**
- * Media helper.
- *
- * @package   Media
- * @author    David Stutz
- * @copyright (c) 2013 David Stutz
+ * CSS helper.
+ * 
+ * @package     Media
+ * @author      David Stutz
+ * @copyright   (c) 2013-2014 David Stutz
+ * @license     http://opensource.org/licenses/bsd-3-clause
  */
 class Kohana_Media_CSS {
 
@@ -21,8 +22,8 @@ class Kohana_Media_CSS {
      * @param array   dependencies
      * @return  object  instance
      */
-    public function add($mixed, $media = 'screen') {
-        $path = DOCROOT . 'media' . Media::DS . 'css' . Media::DS;
+    public function add($mixed) {
+        $path = Kohana::$config->load('media.css');
 
         if (is_array($mixed)) {
             foreach ($mixed as $file) {
@@ -58,7 +59,7 @@ class Kohana_Media_CSS {
      */
     public function render() {
         $filename = sha1(serialize($this->_files)) . '.css';
-        $filepath = Kohana::$cache_dir . Media::DS . $filename;
+        $filepath = Kohana::$cache_dir . DIRECTORY_SEPARATOR . $filename;
 
         if (file_exists($filepath)) {
             $mtime = filemtime($filepath);
