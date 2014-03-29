@@ -34,7 +34,7 @@ class Kohana_Media_JS {
                     }
                 }
                 else {
-                    $this->_files[$path . DIRECTORY_SEPARATOR . $array] = array();
+                    $this->_files[$path . $array] = array();
                 }
             }
         }
