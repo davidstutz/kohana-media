@@ -4,6 +4,22 @@ This a simple media/assets module for Kohana.
 
 Documentation can be found in the guide/ subfolder or using Kohana's [Userguide](https://github.com/kohana/userguide) module.
 
+## Composer
+
+Installation via composer:
+
+    {
+        "repositories": [
+            {
+                "type": "vcs",
+                "url": "https://github.com/davidstutz/kohana-media"
+            }
+        ],
+        "require": {
+            "davidstutz/kohana-media": "dev-master"
+        }
+    }
+
 ## License
 
 Copyright (c) 2013 - 2014 David Stutz
