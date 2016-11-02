@@ -5,30 +5,30 @@
  * 
  * @package     Media
  * @author      David Stutz
- * @copyright   (c) 2013 - 2014 David Stutz
+ * @copyright   (c) 2013 - 2016 David Stutz
  * @license     http://opensource.org/licenses/bsd-3-clause
  */
 class Kohana_Media {
 
     /**
-     * @var	object	instance
+     * @var    object    instance
      */
     protected static $_instance = NULL;
 
     /**
-     * @var	array 	css
+     * @var    array     css
      */
     protected $_css = array();
 
     /**
-     * @var	array 	js
+     * @var    array     js
      */
     protected $_js;
 
     /**
      * Get instance.
      *
-     * @return	object	instance
+     * @return    object    instance
      */
     public static function instance() {
         if (Media::$_instance === NULL) {
