@@ -23,8 +23,8 @@ class Kohana_Media_CSS {
      * @return  object  instance
      */
     public function add($mixed) {
-        $path = Kohana::$config->load('media.css');
-
+        $path = Kohana::config('media.css');
+        
         if (is_array($mixed)) {
             foreach ($mixed as $file) {
                 $this->_files[] = $path . $file;
@@ -60,7 +60,7 @@ class Kohana_Media_CSS {
     public function render() {
         $filename = sha1(serialize($this->_files)) . '.css';
         $filepath = Kohana::$cache_dir . DIRECTORY_SEPARATOR . $filename;
-
+        
         if (file_exists($filepath)) {
             $mtime = filemtime($filepath);
             

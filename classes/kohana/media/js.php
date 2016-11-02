@@ -23,7 +23,7 @@ class Kohana_Media_JS {
      * @return  object  instance
      */
     public function add($mixed, $dependencies = array()) {
-        $path = Kohana::$config->load('media.js');
+        $path = Kohana::config('media.js');
         
         if (is_array($mixed)) {
             foreach ($mixed as $file => $array) {
