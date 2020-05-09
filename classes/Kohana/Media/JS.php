@@ -1,11 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
+use MatthiasMullie\Minify;
+
 /**
  * Javascript helper.
  * 
  * @package     Media
  * @author      David Stutz
- * @copyright   (c) 2013 - 2016 David Stutz
+ * @copyright   (c) 2013 - 2014 David Stutz
  * @license     http://opensource.org/licenses/bsd-3-clause
  */
 class Kohana_Media_JS {
@@ -55,24 +57,43 @@ class Kohana_Media_JS {
      * @param   string  filepath
      */
     protected function _rebuild($filepath) {
+        $minify = Kohana::$config->load('media.minify_js');
+        $minifier = new Minify\JS();
         $added = array();
         $content = '';
 
         foreach ($this->_files as $file => $array) {
             foreach ($array as $dependency) {
                 if (FALSE === array_key_exists($dependency, $added)) {
-                    $content .= file_get_contents($dependency);
+                    if ($minify) {
+                        $minifier->add($dependency);
+                    }
+                    else {
+                        $content .= file_get_contents($dependency);
+                    } 
+
                     $added[$dependency] = $dependency;
                 }
             }
             
             if (FALSE === array_key_exists($file, $added)) {
-                $content .= file_get_contents($file);
+                if ($minify) {
+                    $minifier->add($file);
+                }
+                else {
+                    $content .= file_get_contents($file);
+                }
+
                 $added[$file] = $file;
             }
         }
 
-        file_put_contents($filepath, $content);
+        if ($minify) {
+            file_put_contents($filepath, $minifier->minify());
+        }
+        else {
+            file_put_contents($filepath, $content);
+        }
     }
 
     /**

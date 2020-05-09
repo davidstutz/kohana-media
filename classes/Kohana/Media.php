@@ -5,41 +5,46 @@
  * 
  * @package     Media
  * @author      David Stutz
- * @copyright   (c) 2013 - 2016 David Stutz
+ * @copyright   (c) 2013 - 2014 David Stutz
  * @license     http://opensource.org/licenses/bsd-3-clause
  */
 class Kohana_Media {
 
     /**
-     * @var    object    instance
+     * @var	object	instance
      */
     protected static $_instance = NULL;
 
     /**
-     * @var    array     css
+     * @var	array 	css
      */
     protected $_css = array();
 
     /**
-     * @var    array     js
+     * @var	array 	js
      */
     protected $_js;
 
     /**
      * Get instance.
      *
-     * @return    object    instance
+     * @return	object	instance
      */
-    public static function instance() {
+    public static function instance() { 
         if (Media::$_instance === NULL) {
             Media::$_instance = new Media();
-            
-            if (!class_exists('CSSMin')) {
-                require_once MODPATH . 'media/vendor/cssmin-v3.0.1.php';
-            }
 
-            if (!class_exists('JSMin')) {
-                require_once MODPATH . 'media/vendor/jsmin-1.1.1.php';
+            if (!class_exists('Minify')) {
+                $path = MODPATH . 'media/vendor/';
+                require_once $path . '/minify/src/Minify.php';
+                require_once $path . '/minify/src/CSS.php';
+                require_once $path . '/minify/src/JS.php';
+                require_once $path . '/minify/src/Exception.php';
+                require_once $path . '/minify/src/Exceptions/BasicException.php';
+                require_once $path . '/minify/src/Exceptions/FileImportException.php';
+                require_once $path . '/minify/src/Exceptions/IOException.php';
+                require_once $path . '/converter/src/ConverterInterface.php';
+                require_once $path . '/converter/src/Converter.php';
             }
         }
 

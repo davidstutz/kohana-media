@@ -5,16 +5,16 @@
  * 
  * @package     Media
  * @author      David Stutz
- * @copyright   (c) 2013 - 2016 David Stutz
+ * @copyright   (c) 2013 - 2014 David Stutz
  * @license     http://opensource.org/licenses/bsd-3-clause
  */
 return array(
-    'modules' => array(
-        'navigation' => array(
-            'enabled' => TRUE,
-            'name' => 'Media',
-            'description' => 'Media/assets module.',
-            'copyright' => '(c) 2013 David Stutz',
-        ),
-    )
+	'modules' => array(
+		'navigation' => array(
+			'enabled' => TRUE,
+			'name' => 'Media',
+			'description' => 'Media/assets module.',
+			'copyright' => '(c) 2013 David Stutz',
+		),
+	)
 );

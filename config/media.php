@@ -5,10 +5,12 @@
  * 
  * @package     Media
  * @author      David Stutz
- * @copyright   (c) 2013 - 2016 David Stutz
+ * @copyright   (c) 2013 - 2014 David Stutz
  * @license     http://opensource.org/licenses/bsd-3-clause
  */
 return array(
     'css' => DOCROOT . 'media' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR,
+    'minify_css' => False,
     'js' => DOCROOT . 'media' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR,
+    'minify_js' => False, 
 );

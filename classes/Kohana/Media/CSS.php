@@ -1,11 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
+use MatthiasMullie\Minify;
+
 /**
  * CSS helper.
  * 
  * @package     Media
  * @author      David Stutz
- * @copyright   (c) 2013 - 2016 David Stutz
+ * @copyright   (c) 2013 - 2014 David Stutz
  * @license     http://opensource.org/licenses/bsd-3-clause
  */
 class Kohana_Media_CSS {
@@ -40,15 +42,28 @@ class Kohana_Media_CSS {
     /**
      * Rebuild the cache file.
      * 
-     * @param   string  filepath
+     * @param   string  filepath 
      */
     protected function _rebuild($filepath) {
+        $minify = Kohana::$config->load('media.minify_css');
+        $minifier = new Minify\CSS();
         $content = '';
+
         foreach ($this->_files as $file) {
-            $content .= file_get_contents($file);
+            if ($minify) {
+                $minifier->add($file);
+            }
+            else {
+                $content .= file_get_contents($file);
+            }
         }
         
-        file_put_contents($filepath, $content);
+        if ($minify) {
+            file_put_contents($filepath, $minifier->minify());
+        }
+        else {
+            file_put_contents($filepath, $content);
+        }
     }
 
     /**

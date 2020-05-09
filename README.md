@@ -1,14 +1,12 @@
 # Media Kohana Module
-
-This a simple media/assets module for Kohana.
+ 
+This a simple media/assets module with JS and CSS minifiers powered by [matthiasmullie/minify](https://github.com/matthiasmullie/minify).
 
 Documentation can be found in the guide/ subfolder or using Kohana's [Userguide](https://github.com/kohana/userguide) module.
 
-A demo application can also be found at [davidstutz/kohana-demo](https://github.com/davidstutz/kohana-demo).
-
 ## License
 
-Copyright (c) 2013 - 2016 David Stutz
+Copyright (c) 2013 - 2020 David Stutz
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
